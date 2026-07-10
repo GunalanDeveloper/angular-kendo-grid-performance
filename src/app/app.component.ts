@@ -74,20 +74,7 @@ export class AppComponent implements OnInit {
   documentationView: 'grid' | 'inputs' | 'dialog' | 'tabstrip' | 'buttons' | 'menu' | 'accordion' | 'qrbarcode' | 'tooltip' = 'grid';
   showEditableGrid = false;
   readonly pageSizeOptions = [5, 10, 20, 50, 100];
-  readonly kendoGridSnippet = `<kendo-grid
-  [data]="rowData"
-  [pageable]="true"
-  [sortable]="true"
-  [filterable]="true"
-  [height]="600"
->
-  <kendo-grid-column field="assetCd" title="Asset Code"></kendo-grid-column>
-  <kendo-grid-column field="assetName" title="Asset Name"></kendo-grid-column>
-  <kendo-grid-column field="originalCost" title="Original Cost"></kendo-grid-column>
-  <kendo-grid-column field="installationDt" title="Installation Date"></kendo-grid-column>
-  <kendo-grid-column field="writeOffFlg" title="Write Off"></kendo-grid-column>
-</kendo-grid>`;
-  readonly agGridSnippet = `<ag-grid-angular
+    readonly agGridSnippet = `<ag-grid-angular
   class="ag-theme-quartz grid"
   [columnDefs]="columnDefs"
   [rowData]="rowData"
@@ -103,8 +90,7 @@ export class AppComponent implements OnInit {
   readonly dataBindingTitle = 'Data Binding';
   readonly dataBindingDescription =
     'Kendo Grid typically binds data through the data input, while AG Grid uses rowData. This section shows the main grid binding used in the preview.';
-  readonly kendoDataBindingSnippet = `data: AssetRow[] = [];`;
-  readonly agGridDataBindingSnippet = `<ag-grid-angular
+    readonly agGridDataBindingSnippet = `<ag-grid-angular
   [rowData]="rowData"
   [columnDefs]="columnDefs"
   [defaultColDef]="defaultColDef"
@@ -115,12 +101,7 @@ rowData: AssetRow[] = [];`;
   readonly sortingTitle = 'Sorting';
   readonly sortingDescription =
     'Single sort applies one column at a time. Multi sort lets the user combine multiple columns. Kendo supports both behaviors through its sortable configuration, and AG Grid supports them through sortable columns and the multi-sort key.';
-  readonly kendoSortingSnippet = `kendoSortMode: 'single' | 'multiple' = 'single';
-
-onKendoSortChange(sort: { field?: string; dir?: 'asc' | 'desc' | null }): void {
-  console.log('[Kendo sort change]', sort);
-}`;
-  readonly agGridSortingSnippet = `readonly gridOptions: GridOptions = {
+    readonly agGridSortingSnippet = `readonly gridOptions: GridOptions = {
   suppressCellFocus: false,
   onSortChanged: (event) => this.onAgGridSortChange(event)
 };
@@ -160,11 +141,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
   readonly tooltipTitle = 'Tooltip';
   readonly tooltipDescription =
     'This section compares tooltip usage across Kendo, PrimeNG, and Angular Material.';
-  readonly kendoTextboxSnippet = `<kendo-textbox
-  [value]="searchText"
-  (valueChange)="searchText = $event"
-></kendo-textbox>`;
-  readonly primeNgTextboxSnippet = `<input
+    readonly primeNgTextboxSnippet = `<input
   pInputText
   type="text"
   [ngModel]="searchText"
@@ -181,14 +158,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     placeholder="Search..."
   />
 </mat-form-field>`;
-  readonly kendoNumberSnippet = `<kendo-numerictextbox
-  [value]="amount"
-  [min]="0"
-  [max]="100000"
-  [step]="1"
-  (valueChange)="amount = $event ?? 0"
-></kendo-numerictextbox>`;
-  readonly primeNgNumberSnippet = `<input
+    readonly primeNgNumberSnippet = `<input
   pInputText
   type="number"
   [ngModel]="amount"
@@ -205,11 +175,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     placeholder="Enter amount"
   />
 </mat-form-field>`;
-  readonly kendoDatepickerSnippet = `<kendo-datepicker
-  [value]="selectedDate"
-  (valueChange)="selectedDate = $event ?? selectedDate"
-></kendo-datepicker>`;
-  readonly primeNgDatepickerSnippet = `<p-calendar
+    readonly primeNgDatepickerSnippet = `<p-calendar
   [ngModel]="selectedDate"
   (ngModelChange)="selectedDate = $event ?? selectedDate"
   dateFormat="yy-mm-dd"
@@ -224,12 +190,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
   />
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>`;
-  readonly kendoComboboxSnippet = `<kendo-combobox
-  [data]="comboOptions"
-  [value]="selectedOption"
-  (valueChange)="selectedOption = $event ?? selectedOption"
-></kendo-combobox>`;
-  readonly primeNgComboboxSnippet = `<p-dropdown
+    readonly primeNgComboboxSnippet = `<p-dropdown
   [options]="comboOptions"
   [ngModel]="selectedOption"
   (ngModelChange)="selectedOption = $event ?? selectedOption"
@@ -243,12 +204,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     </mat-option>
   </mat-select>
 </mat-form-field>`;
-  readonly kendoMultiSelectSnippet = `<kendo-multiselect
-  [data]="multiOptions"
-  [value]="selectedMultiOptions"
-  (valueChange)="selectedMultiOptions = $event ?? selectedMultiOptions"
-></kendo-multiselect>`;
-  readonly primeNgMultiSelectSnippet = `<p-multiSelect
+    readonly primeNgMultiSelectSnippet = `<p-multiSelect
   [options]="multiOptions"
   [ngModel]="selectedMultiOptions"
   (ngModelChange)="selectedMultiOptions = $event ?? selectedMultiOptions"
@@ -262,12 +218,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     </mat-option>
   </mat-select>
 </mat-form-field>`;
-  readonly kendoDropdownListSnippet = `<kendo-dropdownlist
-  [data]="comboOptions"
-  [value]="selectedOption"
-  (valueChange)="selectedOption = $event ?? selectedOption"
-></kendo-dropdownlist>`;
-  readonly primeNgDropdownListSnippet = `<p-dropdown
+    readonly primeNgDropdownListSnippet = `<p-dropdown
   [options]="comboOptions"
   [ngModel]="selectedOption"
   (ngModelChange)="selectedOption = $event ?? selectedOption"
@@ -281,18 +232,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     </mat-option>
   </mat-select>
 </mat-form-field>`;
-  readonly kendoDialogSnippet = `<button kendoButton (click)="dialogOpened = true">
-  Open dialog
-</button>
-
-<kendo-dialog *ngIf="dialogOpened" title="Confirm action" (close)="dialogOpened = false">
-  <p>Are you sure you want to continue?</p>
-  <kendo-dialog-actions>
-    <button kendoButton (click)="dialogOpened = false">Cancel</button>
-    <button kendoButton themeColor="primary" (click)="dialogOpened = false">Confirm</button>
-  </kendo-dialog-actions>
-</kendo-dialog>`;
-  readonly primeNgDialogSnippet = `<button pButton type="button" label="Open dialog" (click)="dialogOpened = true"></button>
+    readonly primeNgDialogSnippet = `<button pButton type="button" label="Open dialog" (click)="dialogOpened = true"></button>
 
 <p-dialog
   header="Confirm action"
@@ -315,19 +255,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
   <button mat-button>Cancel</button>
   <button mat-flat-button color="primary">Confirm</button>
 </mat-dialog-actions>`;
-  readonly kendoTabstripSnippet = `<kendo-tabstrip>
-  <kendo-tabstrip-tab title="Overview" [selected]="true">
-    <ng-template kendoTabContent>
-      <p>Overview content goes here.</p>
-    </ng-template>
-  </kendo-tabstrip-tab>
-  <kendo-tabstrip-tab title="Details">
-    <ng-template kendoTabContent>
-      <p>Details content goes here.</p>
-    </ng-template>
-  </kendo-tabstrip-tab>
-</kendo-tabstrip>`;
-  readonly primeNgTabstripSnippet = `<p-tabView>
+    readonly primeNgTabstripSnippet = `<p-tabView>
   <p-tabPanel header="Overview">
     <p>Overview content goes here.</p>
   </p-tabPanel>
@@ -343,11 +271,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     <p>Details content goes here.</p>
   </mat-tab>
 </mat-tab-group>`;
-  readonly kendoButtonSnippet = `<button kendoButton themeColor="primary">Primary</button>
-<button kendoButton themeColor="base">Secondary</button>
-<button kendoButton [disabled]="true">Disabled</button>
-<button kendoButton themeColor="primary" class="is-active">Active</button>`;
-  readonly primeNgButtonSnippet = `<button pButton type="button" label="Primary"></button>
+    readonly primeNgButtonSnippet = `<button pButton type="button" label="Primary"></button>
 <button pButton type="button" label="Secondary" class="p-button-secondary"></button>
 <button pButton type="button" label="Disabled" [disabled]="true"></button>
 <button pButton type="button" label="Active" class="is-active"></button>`;
@@ -355,24 +279,11 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
 <button mat-stroked-button>Secondary</button>
 <button mat-button disabled>Disabled</button>
 <button mat-flat-button color="primary" class="is-active">Active</button>`;
-  readonly kendoMenuSnippet = `<kendo-menu [items]="menuItems"></kendo-menu>`;
-  readonly primeNgMenuSnippet = `<p-tieredMenu [model]="menuItems"></p-tieredMenu>`;
+    readonly primeNgMenuSnippet = `<p-tieredMenu [model]="menuItems"></p-tieredMenu>`;
   readonly materialMenuSnippet = `<mat-nav-list>
   <a mat-list-item *ngFor="let item of menuItems">{{ item.label }}</a>
 </mat-nav-list>`;
-  readonly kendoAccordionSnippet = `<kendo-accordion>
-  <kendo-accordion-item title="Section 1">
-    <ng-template kendoAccordionContent>
-      <p>Accordion content goes here.</p>
-    </ng-template>
-  </kendo-accordion-item>
-  <kendo-accordion-item title="Section 2">
-    <ng-template kendoAccordionContent>
-      <p>Accordion content goes here.</p>
-    </ng-template>
-  </kendo-accordion-item>
-</kendo-accordion>`;
-  readonly primeNgAccordionSnippet = `<p-accordion>
+    readonly primeNgAccordionSnippet = `<p-accordion>
   <p-accordionTab header="Section 1">
     <p>Accordion content goes here.</p>
   </p-accordionTab>
@@ -390,9 +301,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     <p>Accordion content goes here.</p>
   </mat-expansion-panel>
 </mat-accordion>`;
-  readonly kendoQrBarcodeSnippet = `<kendo-qrcode [value]="qrValue"></kendo-qrcode>
-<kendo-barcode [value]="barcodeValue"></kendo-barcode>`;
-  readonly primeNgQrBarcodeSnippet = `<div class="qr-preview">
+    readonly primeNgQrBarcodeSnippet = `<div class="qr-preview">
   <p>QR code placeholder for {{ qrValue }}</p>
   <p>Barcode placeholder for {{ barcodeValue }}</p>
 </div>`;
@@ -400,8 +309,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
   <p>QR code placeholder for {{ qrValue }}</p>
   <p>Barcode placeholder for {{ barcodeValue }}</p>
 </div>`;
-  readonly kendoTooltipSnippet = `<button kendoButton [title]="tooltipText">Hover me</button>`;
-  readonly primeNgTooltipSnippet = `<button pButton type="button" label="Hover me" pTooltip="Helpful tooltip"></button>`;
+    readonly primeNgTooltipSnippet = `<button pButton type="button" label="Hover me" pTooltip="Helpful tooltip"></button>`;
   readonly materialTooltipSnippet = `<button mat-raised-button matTooltip="Helpful tooltip">Hover me</button>`;
   readonly qrValue = 'https://example.com';
   readonly barcodeValue = '123456789012';
@@ -411,23 +319,14 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     { label: 'Reports' },
     { label: 'Settings' }
   ];
-  readonly kendoCheckboxSnippet = `<kendo-checkbox
-  [checked]="isChecked"
-  (checkedChange)="isChecked = $event"
-></kendo-checkbox>`;
-  readonly primeNgCheckboxSnippet = `<p-checkbox
+    readonly primeNgCheckboxSnippet = `<p-checkbox
   [binary]="true"
   [(ngModel)]="isChecked"
 ></p-checkbox>`;
   readonly materialCheckboxSnippet = `<mat-checkbox [(ngModel)]="isChecked">
   Accept
 </mat-checkbox>`;
-  readonly kendoRadioSnippet = `<kendo-radiogroup
-  [data]="radioOptions"
-  [value]="selectedRadio"
-  (valueChange)="selectedRadio = $event"
-></kendo-radiogroup>`;
-  readonly primeNgRadioSnippet = `<div class="p-field-radiobutton">
+    readonly primeNgRadioSnippet = `<div class="p-field-radiobutton">
   <p-radioButton
     *ngFor="let option of radioOptions"
     name="group"
@@ -440,11 +339,7 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
     {{ option }}
   </mat-radio-button>
 </mat-radio-group>`;
-  readonly kendoSwitchSnippet = `<kendo-switch
-  [checked]="isEnabled"
-  (checkedChange)="isEnabled = $event"
-></kendo-switch>`;
-  readonly primeNgSwitchSnippet = `<p-inputSwitch [(ngModel)]="isEnabled"></p-inputSwitch>`;
+    readonly primeNgSwitchSnippet = `<p-inputSwitch [(ngModel)]="isEnabled"></p-inputSwitch>`;
   readonly materialSwitchSnippet = `<mat-slide-toggle [(ngModel)]="isEnabled">
   Enabled
 </mat-slide-toggle>`;
@@ -677,10 +572,6 @@ onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {
       columns: ['installationDt'],
       force: true
     });
-  }
-
-  onKendoSortChange(sort: { field?: string; dir?: 'asc' | 'desc' | null }): void {
-    console.log('[Kendo sort change]', sort);
   }
 
   onAgGridSortChange(event: SortChangedEvent<AssetRow>): void {

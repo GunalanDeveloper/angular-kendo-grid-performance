@@ -60,8 +60,7 @@
               "buildTarget": "angular-kendo-grid-performance-lab:build:production"
             },
             "development": {
-              "buildTarget": "angular-kendo-grid-performance-lab:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "buildTarget": "angular-kendo-grid-performance-lab:build:development"
             }
           },
           "defaultConfiguration": "development"
