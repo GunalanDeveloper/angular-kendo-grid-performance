@@ -1,0 +1,28 @@
+<div class="grid-container">
+  <table class="asset-table">
+    <thead>
+      <tr>
+        <th>Asset ID</th>
+        <th>Asset Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Cost</th>
+        <th>Purchase Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of assets">
+        <td>{{ asset.id }}</td>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.type }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="asset.status.toLowerCase()">
+            {{ asset.status }}
+          </span>
+        </td>
+        <td>{{ asset.cost | currency }}</td>
+        <td>{{ asset.purchaseDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

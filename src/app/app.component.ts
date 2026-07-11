@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AssetGridComponent } from './asset-grid/asset-grid.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
+  imports: [AssetGridComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
