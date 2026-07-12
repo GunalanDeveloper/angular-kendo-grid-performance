@@ -1,58 +1,205 @@
 .grid-container {
   overflow-x: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  background-color: white;
-  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  margin: 2rem 0;
+  border: 1px solid #e8ecf1;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-container:hover {
+  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.08);
 }
 
 .asset-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.asset-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .asset-table th {
-  background-color: #f8fafc;
-  color: #475569;
-  font-weight: 600;
-  padding: 1rem;
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.asset-table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+.asset-table th:last-child {
+  border-radius: 0 12px 0 0;
 }
 
 .asset-table td {
-  padding: 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  color: #334155;
+  padding: 1.125rem 1.5rem;
+  border-bottom: 1px solid #e8ecf1;
+  color: #2d3748;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
-.asset-table tr:hover {
-  background-color: #f1f5f9;
+.asset-table tbody tr {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #ffffff;
 }
 
-.status-badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+.asset-table tbody tr:hover {
+  background-color: #f7fafc;
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05);
+}
+
+.asset-table tbody tr:hover td {
+  color: #1a202c;
   font-weight: 500;
 }
 
+.asset-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.asset-table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 12px;
+}
+
+.asset-table tbody tr:last-child td:last-child {
+  border-radius: 0 0 12px 0;
+}
+
+/* Striped rows for better readability */
+.asset-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.asset-table tbody tr:nth-child(even):hover {
+  background-color: #f0f4f8;
+}
+
+/* Status Badge Styles - Modern Design */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.status-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Active Status - Green Modern */
 .status-badge.active {
-  background-color: #dcfce7;
-  color: #166534;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
+.status-badge.active:hover {
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* Maintenance Status - Amber Modern */
 .status-badge.maintenance {
-  background-color: #fef08a;
-  color: #854d0e;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
+.status-badge.maintenance:hover {
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+/* Retired Status - Red Modern */
 .status-badge.retired {
-  background-color: #fee2e2;
-  color: #991b1b;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
+.status-badge.retired:hover {
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+/* Reserved Status - Purple Modern */
 .status-badge.reserved {
-  background-color: #e0e7ff;
-  color: #3730a3;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.status-badge.reserved:hover {
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-container {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+  }
+
+  .asset-table th,
+  .asset-table td {
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .asset-table th {
+    font-size: 0.8rem;
+  }
+
+  .status-badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Scrollbar Styling for Modern Look */
+.grid-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.grid-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.grid-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.grid-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* Accessibility - Focus Styles */
+.asset-table tbody tr:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
 }
