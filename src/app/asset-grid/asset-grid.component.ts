@@ -30,4 +30,29 @@ export class AssetGridComponent {
     { id: 'AST-009', name: 'Standing Desk Pro', type: 'Furniture', status: 'Active', cost: 650, purchaseDate: '2022-12-01' },
     { id: 'AST-010', name: 'Sony A7IV Camera', type: 'AV Equipment', status: 'Reserved', cost: 2498, purchaseDate: '2023-03-18' }
   ];
+
+  sortColumn: keyof Asset | '' = '';
+  sortAscending: boolean = true;
+
+  sort(column: keyof Asset) {
+    if (this.sortColumn === column) {
+      this.sortAscending = !this.sortAscending;
+    } else {
+      this.sortColumn = column;
+      this.sortAscending = true;
+    }
+
+    this.assets.sort((a, b) => {
+      const valueA = a[column];
+      const valueB = b[column];
+
+      if (valueA < valueB) {
+        return this.sortAscending ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return this.sortAscending ? 1 : -1;
+      }
+      return 0;
+    });
+  }
 }

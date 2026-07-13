@@ -2,12 +2,12 @@
   <table class="asset-table">
     <thead>
       <tr>
-        <th>Asset ID</th>
-        <th>Asset Name</th>
-        <th>Type</th>
-        <th>Status</th>
-        <th>Cost</th>
-        <th>Purchase Date</th>
+        <th (click)="sort('id')" style="cursor: pointer">Asset ID <span *ngIf="sortColumn === 'id'">{{sortAscending ? '▲' : '▼'}}</span></th>
+        <th (click)="sort('name')" style="cursor: pointer">Asset Name <span *ngIf="sortColumn === 'name'">{{sortAscending ? '▲' : '▼'}}</span></th>
+        <th (click)="sort('type')" style="cursor: pointer">Type <span *ngIf="sortColumn === 'type'">{{sortAscending ? '▲' : '▼'}}</span></th>
+        <th (click)="sort('status')" style="cursor: pointer">Status <span *ngIf="sortColumn === 'status'">{{sortAscending ? '▲' : '▼'}}</span></th>
+        <th (click)="sort('cost')" style="cursor: pointer">Cost <span *ngIf="sortColumn === 'cost'">{{sortAscending ? '▲' : '▼'}}</span></th>
+        <th (click)="sort('purchaseDate')" style="cursor: pointer">Purchase Date <span *ngIf="sortColumn === 'purchaseDate'">{{sortAscending ? '▲' : '▼'}}</span></th>
       </tr>
     </thead>
     <tbody>
